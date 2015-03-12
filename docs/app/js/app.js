@@ -451,14 +451,15 @@ function(SERVICES, COMPONENTS, DEMOS, PAGES, $location, $rootScope) {
   }
 }])
 
-.controller('DocsVersionsCtrl', ["$scope", "VERSIONCONFIG",function($scope, VERSIONCONFIG){
-  var a = "1";
-  $scope.version = VERSIONCONFIG.currentVersion.version
-  $scope.versions = VERSIONCONFIG.previousVersions.reverse()
-  $scope.versions.unshift(VERSIONCONFIG.currentVersion)
+.controller('DocsVersionsCtrl', [
+  '$scope',
+  'VERSIONCONFIG',
+function($scope, VERSIONCONFIG) {
+  $scope.version = VERSIONCONFIG.currentVersion.version;
+  $scope.versions = VERSIONCONFIG.previousVersions.reverse();
+  $scope.versions.unshift(VERSIONCONFIG.currentVersion);
 
-  $scope.availableDocumentationVersions = function(element){
-    // only show 0.8.3 up to latest until older versions can have the version menu
+  $scope.availableDocumentationVersions = function(element) {
     return element.docsUrl != null || element.isSnapshot;
   };
 
