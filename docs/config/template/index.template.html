@@ -44,6 +44,11 @@
 
     <md-content flex role="navigation">
       <ul class="docs-menu">
+        <li ng-controller="DocsVersionsCtrl">
+          <md-select ng-model="version">
+            <md-option ng-value="v.version" ng-repeat="v in versions">v{{v.version}}</md-option>
+          </md-select>
+        </li>
         <li ng-repeat="section in menu.sections" class="parent-list-item" ng-class="{'parentActive' : isSectionSelected(section)}">
           <h2 class="menu-heading" ng-if="section.type === 'heading'" id="heading_{{ section.name | nospace }}">
             {{section.name}}
@@ -83,6 +88,8 @@
 
           <span flex></span> <!-- use up the empty space -->
           <div class="md-toolbar-item md-tools docs-tools" layout="column" layout-gt-md="row">
+
+
             <div>
               <md-button ng-if="!menu.currentPage || menu.currentSection.name === 'Getting Started'"
                          target="_blank"
