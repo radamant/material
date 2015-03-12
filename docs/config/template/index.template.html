@@ -45,7 +45,7 @@
     <md-content flex role="navigation">
       <ul class="docs-menu">
         <li ng-controller="DocsVersionsCtrl">
-          <md-select ng-model="version" aria-label="Angular Material Version">
+          <md-select ng-model="version" placeholder="Version">
             <md-option ng-value="v.version" ng-repeat="v in versions | filter: availableDocumentationVersions">v{{v.version}}</md-option>
           </md-select>
         </li>
