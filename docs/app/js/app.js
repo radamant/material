@@ -459,7 +459,7 @@ function(SERVICES, COMPONENTS, DEMOS, PAGES, $location, $rootScope) {
 
   $scope.availableDocumentationVersions = function(element){
     // only show 0.8.3 up to latest until older versions can have the version menu
-    return element.minor >= 8 && element.patch >= 3;
+    return element.docsUrl != null || element.isSnapshot;
   };
 
 }])
