@@ -110,10 +110,9 @@ var getPreviousVersions =  function() {
       })
       .filter()
       .map(function(version) {
-        version.docsUrl = 'http://code.angularjs.org/' + version.version + '/docs';
-        // Versions before 1.0.2 had a different docs folder name
-        if (version.major < 1 || (version.major === 1 && version.minor === 0 && version.dot < 2)) {
-          version.docsUrl += '-' + version.version;
+        version.docsUrl = null;
+        if(semver.satisfies(version, '>=0.8.0')){
+          version.docsUrl = 'http://code.angularjs.org/material/' + version.version + '/docs';
         }
         return version;
       })
