@@ -456,7 +456,12 @@ function(SERVICES, COMPONENTS, DEMOS, PAGES, $location, $rootScope) {
   $scope.version = VERSIONCONFIG.currentVersion.version
   $scope.versions = VERSIONCONFIG.previousVersions.reverse()
   $scope.versions.unshift(VERSIONCONFIG.currentVersion)
-  console.log("versionconfig", $scope.versions)
+
+  $scope.availableDocumentationVersions = function(element){
+    // only show 0.8.3 up to latest until older versions can have the version menu
+    return element.minor >= 8 && element.patch >= 3;
+  };
+
 }])
 
 .controller('HomeCtrl', [

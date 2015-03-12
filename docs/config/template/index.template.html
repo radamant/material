@@ -46,7 +46,7 @@
       <ul class="docs-menu">
         <li ng-controller="DocsVersionsCtrl">
           <md-select ng-model="version">
-            <md-option ng-value="v.version" ng-repeat="v in versions">v{{v.version}}</md-option>
+            <md-option ng-value="v.version" ng-repeat="v in versions | filter: availableDocumentationVersions">v{{v.version}}</md-option>
           </md-select>
         </li>
         <li ng-repeat="section in menu.sections" class="parent-list-item" ng-class="{'parentActive' : isSectionSelected(section)}">
