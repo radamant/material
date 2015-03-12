@@ -45,7 +45,7 @@
     <md-content flex role="navigation">
       <ul class="docs-menu">
         <li ng-controller="DocsVersionsCtrl">
-          <md-select ng-model="version">
+          <md-select ng-model="version" aria-label="Angular Material Version">
             <md-option ng-value="v.version" ng-repeat="v in versions | filter: availableDocumentationVersions">v{{v.version}}</md-option>
           </md-select>
         </li>
@@ -88,8 +88,6 @@
 
           <span flex></span> <!-- use up the empty space -->
           <div class="md-toolbar-item md-tools docs-tools" layout="column" layout-gt-md="row">
-
-
             <div>
               <md-button ng-if="!menu.currentPage || menu.currentSection.name === 'Getting Started'"
                          target="_blank"
