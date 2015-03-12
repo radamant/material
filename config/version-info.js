@@ -198,6 +198,3 @@ exports.gitRepoInfo = gitRepoInfo = getGitRepoInfo();
 exports.previousVersions = previousVersions = getPreviousVersions();
 exports.cdnVersion = cdnVersion = getCdnVersion();
 exports.currentVersion = getTaggedVersion() || getSnapshotVersion();
-console.log("Current version", exports.currentVersion)
-console.log("Previous Versions", exports.previousVersions)
-console.log("CDN Version", exports.cdnVersion)
